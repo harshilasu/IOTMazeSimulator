@@ -9,7 +9,7 @@ function popup(){
     alert("Hello World");
 }
 function startServer(){
-    var connection = new WebSocket("ws://localhost:3000");
+    var connection = new WebSocket("ws://192.168.1.3:8124");
     connection.onopen = function(){
         alert("Connection Opened");
         connection.send('Hello Server JEMKLE');
