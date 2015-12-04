@@ -5,34 +5,48 @@
  */
 //var net = require('net');
 var checker = 9000;
+var connection;
 function popup(){
     alert("Hello World");
 }
 function startServer(){
-    var connection = new WebSocket("ws://192.168.1.3:8124");
+    connection = new WebSocket("ws://192.168.1.3:3000");
     connection.onopen = function(){
-        alert("Connection Opened");
-        connection.send('Hello Server JEMKLE');
+        document.getElementById("testing").innerHTML = 40;
     }
     
-    document.getElementById("testing").innerHTML = checker;
+    //document.getElementById("testing").innerHTML = checker;
     checker = checker+1;
-    
-//    var server = net.createServer(function(socket){
-//        socket.write('Echo server \r\n');
-//        socket.pipe(socket);
-//    });
-//    server.listen(1337, '127.0.0.1');
-//    alert("Server has been started.");
 }
-    //var net = require('net');
 
 
+function up(){
+    connection.send('up');
+    document.getElementById("left").innerHTML = 0.5;
+    document.getElementById("right").innerHTML = 0.5;
+}
 
-//var checker = 9000;
-//document.getElementById("testing").value = checker;
-//var client = new net.Socket();
-//client.on('data',function(data){
-//    
-//    
-//});
+function down(){
+        document.getElementById("left").innerHTML = -0.5;
+    document.getElementById("right").innerHTML = -0.5;
+
+    connection.send('down');
+}
+
+function left(){
+    document.getElementById("left").innerHTML = -0.5;
+    document.getElementById("right").innerHTML = 0.5;
+    connection.send('left');
+}
+
+function right(){
+   document.getElementById("left").innerHTML = 0.5;
+    document.getElementById("right").innerHTML = -0.5;
+    connection.send('right');
+}
+
+function stop(){
+     document.getElementById("left").innerHTML = 0.0;
+    document.getElementById("right").innerHTML = 0.0;
+    connection.send('stop');
+}
