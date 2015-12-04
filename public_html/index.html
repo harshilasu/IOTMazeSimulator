@@ -45,21 +45,21 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('http://www.mathworks.com/cmsimages/89133_wm_lego-mindstorms-ev3-support-gallery-image1.jpg');"></div>
+                <div class="fill" style="background-image:url('http://public.asu.edu/~hmpatel4/edison.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('http://johnny-five.io/img/breadboard/proximity-lidarlite.png');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('http://www.intorobotics.com/wp-content/uploads/2015/03/F8BHO7EI4CMIULQ_opt.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                    
                 </div>
             </div>
         </div>
@@ -85,11 +85,13 @@
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <a href="#" class="btn btn-default">Up</a>
-                    <a href="#" class="btn btn-default">Down</a>
-                    <a href="#" class="btn btn-default">Left</a>
-                    <a href="#" class="btn btn-default">Right</a>
-                    <a href="#" class="btn btn-default" onclick="startServer()">Stop</a>
+                    <a href="#" class="btn btn-default" onclick="up()">Up</a>
+                    <a href="#" class="btn btn-default" onclick="down()">Down</a>
+                    <a href="#" class="btn btn-default" onclick="left()">Left</a>
+                    <a href="#" class="btn btn-default" onclick="right()">Right</a>
+                    <a href="#" class="btn btn-default" onclick="stop()">Stop</a>
+                    <a href="#" class="btn btn-default" onclick="startServer()">Start Server</a>
+
                 </div>
             </div>
          
@@ -117,11 +119,15 @@
      <tbody>
       <tr>
              <td>Motor1</td>
-             <td>ForwardDistanceSensor</td>
+             <td>
+                <p id="left"></p>
+             </td>
       </tr>
       <tr>
              <td>Motor2</td>
-             <td>BackDistanceSensor</td>
+             <td>
+                 <p id="right"></p>
+             </td>
       </tr>
       <tr>
              <td>Motor3</td>
